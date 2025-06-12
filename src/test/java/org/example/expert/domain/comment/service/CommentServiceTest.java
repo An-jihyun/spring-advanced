@@ -43,7 +43,7 @@ class CommentServiceTest {
         given(todoRepository.findById(anyLong())).willReturn(Optional.empty());
 
         // when
-        ServerException exception = assertThrows(ServerException.class, () -> {
+        InvalidRequestException exception = assertThrows(InvalidRequestException.class, () -> {
             commentService.saveComment(authUser, todoId, request);
         });
 
